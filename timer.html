@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+   
+<body>
+        <input type="text" id="hours" value="1">
+<br>
+        <input type="text" id="minutes" value="1">
+<br>
+        <input type="text" id="seconds" value="1">  
+<br>
+        
+        <textarea id="second">
+
+        </textarea>
+
+        <textarea id="minute">
+            
+         </textarea>
+
+            <textarea id="hour">
+            
+            </textarea>
+    
+
+<button onclick="timer()">Start</button>
+<button onclick="reset()">reset</button>
+
+
+<script>
+
+
+var flag = 1;  
+var sec;
+var min;
+var hour;
+
+function timer()
+{
+
+    if(flag==1)
+   { sec = document.getElementById("seconds").value;
+     min = document.getElementById("minutes").value;
+     hour= document.getElementById("hours").value;
+     flag=0;}
+
+    document.getElementById("second").innerHTML = sec;
+    document.getElementById("minute").innerHTML = min;
+    document.getElementById("hour").innerHTML = hour;
+
+        //while(sec>0)
+        /*var flag =1;
+        if(flag==0)
+        {
+        flag=1;}  */  
+
+     if(sec==0)
+   { if(min>0)
+       {min=min-1;
+        sec=60;
+        myFunction();
+       }
+     else if(min==0)
+       {
+          if(hour==0)
+          {alert("time up");}
+          else 
+          {hour=hour-1;
+           min=60;
+           sec=60;
+           myFunction();}
+        }
+    }
+   else{
+   sec=sec-1;
+     myFunction();}
+
+
+
+}
+
+function myFunction() {
+  setTimeout(function(){timer();}, 1000);
+}
+
+function reset()
+{sec=0;
+min=0;
+hour=0;
+flag=1;}
+
+</script>
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
